@@ -1,0 +1,14 @@
+name = masaari
+description = Theme Masaari.
+core = 7.x
+version = 7.x-dev
+engine = phptemplate
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/justified-nav.css
+regions[page_top] = Haut de page
+regions[help] = Aide
+regions[page_bottom] = Bas de page
+regions[content] = Contenu
+regions[menu] = Menu principal
+regions[sidebar_first] = Colonne laterale
+regions[footer] = Pied de page
