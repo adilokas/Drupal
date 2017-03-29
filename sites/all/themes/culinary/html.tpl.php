@@ -12,16 +12,15 @@ Description: A two-column fixed-width template suitable for small websites.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<?php print $head ?>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Culinary by TEMPLATED</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-    <?php print $scripts; ?>
-
-    <?php print $styles; ?>
+<title><?php print $head_title; ?></title>
+<?php print $scripts; ?>
+<?php print $styles; ?>
 </head>
-<body>
-
-
+<body <?php print $classes?>>
+<?php print $page_top ?>
+<?php print $page ?>
+<?php print $page_bottom ?>
 </body>
 </html>

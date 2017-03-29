@@ -24,38 +24,8 @@
       </div>
       <section class="row">
         <div class="col-md-8">
-        
-            <?php 
-            
-            
-            	$query = new EntityFieldQuery();
-            	$entities = $query->entityCondition('entity_type', 'node')
-            	->propertyCondition('type', 'Article')
-            	->propertyCondition('status', 1)
-            	->execute();
-            	
-            	if (!empty($entities['node'])) {
-            		foreach ($entities['node'] as $node){
-            			$nodes = node_load($node->nid);    		
-            			?>
-				         <div class="row">
-				            <div class="col-md-4">
-				              <a href="#">
-				                <img class="img-responsive" src="<?php print file_create_url($nodes->field_image['und'][0]['uri']); ?>" alt="">
-				              </a>
-				            </div>
-				            <div class="col-md-8">
-				              <h3><?php print $nodes->title; ?></h3>
-				              <h4>Subheading</h4>
-				              <?php print $nodes->body['und'][0]['value'];?>
-				              <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
-				            </div>
-				          </div>
-				          <?php 
-            		}
-            		
-            	}
-            ?>
+   
+     	<?php print render($page['content']); ?>
 			
          
         </div>
