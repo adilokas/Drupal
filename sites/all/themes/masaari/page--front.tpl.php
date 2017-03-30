@@ -63,6 +63,7 @@
          
         </div>
         <div class="col-md-4">
+        <?php print render($page['sidebar_first']); ?>
         </div>
       </section>
 

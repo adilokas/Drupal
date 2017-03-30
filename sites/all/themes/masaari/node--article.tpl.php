@@ -1,5 +1,7 @@
  <!-- Page Content -->
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+	<?php //  var_dump( $content['comments']);?>
+    <?php print $user_picture; ?>
 
      <div class="container">
 
@@ -9,9 +11,10 @@
             <div class="col-lg-8">
 
                 <!-- Blog Post -->
-
+    <?php print render($title_prefix); ?>
                 <!-- Title -->
-                <h1>Blog Post Title</h1>
+        <h1<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h1>
+     <?php print render($title_suffix); ?>
 
                 <!-- Author -->
                 <p class="lead">
@@ -21,25 +24,21 @@
                 <hr>
 
                 <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 24, 2013 at 9:00 PM</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on <?php print format_date($node->created, 'article'); ?></p>
 
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+                <img class="img-responsive" src="<?php print file_create_url($field_image['0']['uri']); ?>" alt="">
 
                 <hr>
 
                 <!-- Post Content -->
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
-
+   				<?php  print $node->body['und'][0]['value'];  ?>
+   
                 <hr>
 
-                <!-- Blog Comments -->
+    
 
                 <!-- Comments Form -->
                 <div class="well">
@@ -55,7 +54,8 @@
                 <hr>
 
                 <!-- Posted Comments -->
-
+				
+  <?php print render($content['comments']); ?>
                 <!-- Comment -->
                 <div class="media">
                     <a class="pull-left" href="#">
